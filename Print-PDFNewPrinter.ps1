@@ -25,7 +25,7 @@ if (Test-NetConnection $prhostname)
     Add-Printer -Name $prhostname.ToUpper() -DriverName $drivername -PortName $prhostname
 
     (Get-Printer -Name $prhostname).Name
-    Write-Host "Drucke $outfile auf $prhostname$"
+    Write-Host "Drucke $outfile auf $prhostname"
     Start-Process -FilePath $outfile -Verb PrintTo $prhostname -PassThru -WindowStyle Hidden | %{sleep 10;$_} | kill
 
     Write-Host "Lösche Drucker: $prhostname"
